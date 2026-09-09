@@ -1,0 +1,27 @@
+{
+  "name": "Mohit Raj | Full-Stack Developer & Technical Team Lead",
+  "short_name": "Mohit Raj",
+  "description": "Portfolio of Mohit Raj — Full-Stack Developer and Technical Team Lead at Tech Tomorrow based in Jamshedpur, Jharkhand.",
+  "start_url": "/mohitraj.me/",
+  "scope": "/mohitraj.me/",
+  "display": "standalone",
+  "background_color": "#FAF8F3",
+  "theme_color": "#FAF8F3",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ]
+}
