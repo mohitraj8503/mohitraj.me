@@ -1046,94 +1046,78 @@
 
 
         /* ===================================
-           HERO SECTION & SHOWCASE CARD
+           HERO SECTION (FULL EDITORIAL SCALE)
         =================================== */
         .hero {
             min-height: 100svh;
-            display: flex;
+            display: grid;
+            grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.85fr);
             align-items: center;
-            justify-content: center;
+            gap: clamp(40px, 5vw, 76px);
             position: relative;
-            padding: calc(115px + env(safe-area-inset-top)) 0 60px;
-        }
-
-        .hero-showcase-card {
-            position: relative;
+            padding: calc(125px + env(safe-area-inset-top)) 0 80px;
             width: 100%;
-            background: #FAF8F3;
-            border: 1.5px solid rgba(201, 169, 110, 0.48);
-            border-radius: 24px;
-            padding: clamp(34px, 4.5vw, 56px);
-            box-shadow: 0 24px 60px rgba(42, 38, 34, 0.06), 0 0 0 5px #F5EFEB;
-            z-index: 2;
         }
 
-        /* L-shaped Gold Corner Brackets */
-        .card-corner {
+        /* Gold Corner Framing Brackets for Hero Section */
+        .hero-corner {
             position: absolute;
-            width: 28px;
-            height: 28px;
+            width: 32px;
+            height: 32px;
             pointer-events: none;
             z-index: 3;
+            opacity: 0.85;
         }
 
-        .card-corner.c-tl {
-            top: 14px;
-            left: 14px;
+        .hero-corner.c-tl {
+            top: calc(85px + env(safe-area-inset-top));
+            left: 0;
             border-top: 2px solid #C9A96E;
             border-left: 2px solid #C9A96E;
         }
 
-        .card-corner.c-tr {
-            top: 14px;
-            right: 14px;
+        .hero-corner.c-tr {
+            top: calc(85px + env(safe-area-inset-top));
+            right: 0;
             border-top: 2px solid #C9A96E;
             border-right: 2px solid #C9A96E;
         }
 
-        .card-corner.c-bl {
-            bottom: 14px;
-            left: 14px;
+        .hero-corner.c-bl {
+            bottom: 24px;
+            left: 0;
             border-bottom: 2px solid #C9A96E;
             border-left: 2px solid #C9A96E;
         }
 
-        .card-corner.c-br {
-            bottom: 14px;
-            right: 14px;
+        .hero-corner.c-br {
+            bottom: 24px;
+            right: 0;
             border-bottom: 2px solid #C9A96E;
             border-right: 2px solid #C9A96E;
         }
 
-        /* Two-column layout */
-        .hero-card-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
-            gap: clamp(32px, 4vw, 56px);
-            align-items: center;
-        }
-
-        .hero-card-left {
+        .hero-left-content {
             display: flex;
             flex-direction: column;
             z-index: 2;
         }
 
         /* Kicker & Status */
-        .hero-card-kicker-row {
+        .hero-kicker-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 14px;
+            gap: 16px;
             flex-wrap: wrap;
-            margin-bottom: 14px;
+            margin-bottom: 18px;
         }
 
-        .hero-card-kicker {
-            font-size: 11px;
+        .hero-kicker {
+            font-size: 11.5px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.26em;
+            letter-spacing: 0.28em;
             color: #8B4A3C;
             display: inline-flex;
             align-items: center;
@@ -1143,12 +1127,12 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            font-size: 10px;
+            font-size: 10.5px;
             font-weight: 500;
             letter-spacing: 0.12em;
             text-transform: uppercase;
             color: #4D4741;
-            padding: 4px 10px;
+            padding: 5px 12px;
             border-radius: 999px;
             background: rgba(46, 204, 113, 0.08);
             border: 1px solid rgba(46, 204, 113, 0.25);
@@ -1169,42 +1153,48 @@
             100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0); }
         }
 
-        /* Title */
-        .hero-card-title {
+        /* Grand Title */
+        .hero-main-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(3.2rem, 5.6vw, 5rem);
+            font-size: clamp(4.4rem, 8.5vw, 7.5rem);
             font-weight: 700;
-            line-height: 0.96;
+            line-height: 0.94;
             color: var(--ink);
-            letter-spacing: -0.03em;
-            margin: 0 0 10px 0;
+            letter-spacing: -0.035em;
+            margin: 0 0 14px 0;
+        }
+
+        .name-high {
+            color: var(--accent-gold);
+            font-style: italic;
+            font-weight: 600;
         }
 
         /* Subtitle */
-        .hero-card-subtitle {
+        .hero-subtitle {
             font-family: 'DM Sans', sans-serif;
-            font-size: clamp(17px, 1.8vw, 22px);
+            font-size: clamp(20px, 2.2vw, 28px);
             font-weight: 700;
             color: #7A6031;
-            letter-spacing: -0.01em;
-            margin-bottom: 8px;
+            letter-spacing: -0.015em;
+            margin-bottom: 12px;
         }
 
         /* Meta Row */
-        .hero-card-meta {
+        .hero-meta-strip {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             flex-wrap: wrap;
-            font-size: 12px;
+            font-size: 13.5px;
             letter-spacing: 0.03em;
             color: #4D4741;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
-        .hero-card-meta .meta-dot {
+        .hero-meta-strip .meta-dot {
             color: var(--accent-gold);
-            opacity: 0.75;
+            opacity: 0.8;
         }
 
         .hero-meta-link {
@@ -1221,83 +1211,83 @@
         }
 
         /* Divider */
-        .hero-card-divider {
+        .hero-rule {
             width: 100%;
             height: 1px;
             background: rgba(201, 169, 110, 0.35);
-            margin: 0 0 22px 0;
+            margin: 0 0 24px 0;
         }
 
         /* Narrative Bio */
-        .hero-card-narrative {
-            font-size: 15.5px;
-            line-height: 1.75;
+        .hero-narrative {
+            font-size: clamp(16px, 1.35vw, 18.5px);
+            line-height: 1.8;
             color: var(--ink-2);
             font-weight: 300;
-            margin: 0 0 24px 0;
-            max-width: 580px;
+            margin: 0 0 30px 0;
+            max-width: 660px;
         }
 
         /* Entity Pill Badges */
-        .hero-card-pills {
+        .hero-pills {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             flex-wrap: wrap;
-            margin-bottom: 28px;
+            margin-bottom: 34px;
         }
 
-        .hero-card-pill {
+        .hero-pill-item {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 7px 14px;
-            background: #FAF8F3;
-            border: 1px solid rgba(42, 38, 34, 0.16);
-            border-radius: 8px;
+            gap: 7px;
+            padding: 9px 18px;
+            background: rgba(250, 248, 243, 0.92);
+            border: 1px solid rgba(122, 96, 49, 0.28);
+            border-radius: 9px;
             font-family: 'DM Sans', sans-serif;
-            font-size: 12px;
+            font-size: 12.5px;
             font-weight: 600;
             color: var(--ink-2);
             text-decoration: none;
             cursor: pointer;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+            box-shadow: 0 2px 6px rgba(42, 38, 34, 0.04);
             transition: all 0.25s var(--transition-smooth);
         }
 
-        .hero-card-pill:hover {
+        .hero-pill-item:hover {
             border-color: #7A6031;
             color: #7A6031;
             background: #F4EFE6;
             transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(122, 96, 49, 0.12);
+            box-shadow: 0 6px 14px rgba(122, 96, 49, 0.15);
         }
 
         /* Action Buttons */
-        .hero-card-actions {
+        .hero-action-group {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 16px;
             flex-wrap: wrap;
-            margin-bottom: 22px;
+            margin-bottom: 26px;
         }
 
         /* URL Watermark */
-        .hero-card-footer {
-            margin-top: 4px;
-            padding-top: 14px;
-            border-top: 1px solid rgba(201, 169, 110, 0.2);
+        .hero-footnote {
+            margin-top: 6px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(201, 169, 110, 0.22);
         }
 
-        .hero-card-url {
+        .hero-site-url {
             font-family: 'JetBrains Mono', monospace;
-            font-size: 11px;
-            color: rgba(122, 96, 49, 0.75);
-            letter-spacing: 0.05em;
+            font-size: 12px;
+            color: rgba(122, 96, 49, 0.8);
+            letter-spacing: 0.06em;
         }
 
         /* Right Column: Portrait Showcase */
-        .hero-card-right {
+        .hero-right-content {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -1308,25 +1298,25 @@
         .hero-portrait-frame {
             position: relative;
             width: 100%;
-            max-width: 380px;
+            max-width: 480px;
             aspect-ratio: 1 / 1;
-            border-radius: 28px;
-            border: 2px solid #C9A96E;
-            padding: 5px;
-            background: rgba(201, 169, 110, 0.1);
-            box-shadow: 0 16px 42px rgba(42, 38, 34, 0.1);
+            border-radius: 36px;
+            border: 2.5px solid #C9A96E;
+            padding: 7px;
+            background: rgba(201, 169, 110, 0.12);
+            box-shadow: 0 24px 60px rgba(42, 38, 34, 0.14);
             overflow: hidden;
         }
 
         .hero-portrait-photo {
             position: absolute;
-            top: 5px;
-            left: 5px;
-            width: calc(100% - 10px);
-            height: calc(100% - 10px);
+            top: 7px;
+            left: 7px;
+            width: calc(100% - 14px);
+            height: calc(100% - 14px);
             object-fit: cover;
             object-position: center 20%;
-            border-radius: 22px;
+            border-radius: 30px;
             opacity: 0;
             transform: scale(0.97);
             transition: opacity 0.4s var(--transition-smooth), transform 0.4s var(--transition-smooth);
@@ -1343,24 +1333,24 @@
         .hero-portrait-switcher {
             display: inline-flex;
             align-items: center;
-            gap: 4px;
-            margin-top: 14px;
-            padding: 4px;
+            gap: 6px;
+            margin-top: 18px;
+            padding: 5px;
             background: rgba(42, 38, 34, 0.05);
-            border: 1px solid rgba(201, 169, 110, 0.35);
+            border: 1px solid rgba(201, 169, 110, 0.38);
             border-radius: 999px;
         }
 
         .switcher-btn {
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 6px 14px;
+            gap: 7px;
+            padding: 7px 18px;
             border: none;
             background: transparent;
             color: var(--ink-3);
             font-family: 'DM Sans', sans-serif;
-            font-size: 11px;
+            font-size: 11.5px;
             font-weight: 500;
             letter-spacing: 0.04em;
             border-radius: 999px;
@@ -2543,104 +2533,73 @@
                 display: flex;
             }
 
-            /* Hero Showcase Card Mobile */
+            /* Hero Section Mobile */
             .hero {
                 display: flex;
                 flex-direction: column;
                 min-height: auto;
-                padding-top: calc(88px + env(safe-area-inset-top));
-                padding-bottom: 48px;
+                padding-top: calc(90px + env(safe-area-inset-top));
+                padding-bottom: 56px;
+                gap: 32px;
             }
 
-            .hero-showcase-card {
-                padding: 24px 18px 24px;
-                border-radius: 18px;
-                box-shadow: 0 12px 36px rgba(42, 38, 34, 0.05), 0 0 0 3px #F5EFEB;
+            .hero-corner {
+                display: none;
             }
 
-            .card-corner {
-                width: 18px;
-                height: 18px;
-            }
-
-            .card-corner.c-tl,
-            .card-corner.c-tr {
-                top: 8px;
-            }
-
-            .card-corner.c-bl,
-            .card-corner.c-br {
-                bottom: 8px;
-            }
-
-            .card-corner.c-tl,
-            .card-corner.c-bl {
-                left: 8px;
-            }
-
-            .card-corner.c-tr,
-            .card-corner.c-br {
-                right: 8px;
-            }
-
-            .hero-card-grid {
-                grid-template-columns: 1fr;
-                gap: 24px;
-            }
-
-            .hero-card-right {
+            .hero-right-content {
                 order: -1;
                 width: 100%;
-                max-width: 280px;
+                max-width: 330px;
                 margin: 0 auto;
             }
 
-            .hero-card-title {
-                font-size: clamp(2.4rem, 11vw, 3.4rem);
-                line-height: 1.0;
+            .hero-main-title {
+                font-size: clamp(3.2rem, 14vw, 5rem);
+                line-height: 0.95;
             }
 
-            .hero-card-subtitle {
-                font-size: 16px;
+            .hero-subtitle {
+                font-size: 18px;
             }
 
-            .hero-card-meta {
-                font-size: 11px;
-                gap: 6px;
-            }
-
-            .hero-card-narrative {
-                font-size: 14.5px;
-                line-height: 1.65;
-                margin-bottom: 18px;
-            }
-
-            .hero-card-pills {
+            .hero-meta-strip {
+                font-size: 12px;
                 gap: 8px;
+            }
+
+            .hero-narrative {
+                font-size: 15.5px;
+                line-height: 1.7;
                 margin-bottom: 22px;
             }
 
-            .hero-card-pill {
-                font-size: 11px;
-                padding: 5px 10px;
+            .hero-pills {
+                gap: 8px;
+                margin-bottom: 26px;
             }
 
-            .hero-card-actions {
+            .hero-pill-item {
+                font-size: 11.5px;
+                padding: 6px 12px;
+            }
+
+            .hero-action-group {
                 width: 100%;
                 flex-direction: column;
-                gap: 10px;
+                gap: 12px;
             }
 
-            .hero-card-actions .nav-btn,
-            .hero-card-actions .nav-btn-ghost {
+            .hero-action-group .nav-btn,
+            .hero-action-group .nav-btn-ghost {
                 width: 100%;
                 text-align: center;
                 display: block;
             }
 
-            .hero-card-footer {
-                margin-top: 12px;
-                padding-top: 12px;
+            .hero-footnote {
+                margin-top: 14px;
+                padding-top: 14px;
                 word-break: break-all;
             }
 
@@ -2958,111 +2917,107 @@
             <section class="hero" id="hero">
                 <canvas id="neural-canvas" class="neural-canvas" aria-hidden="true"></canvas>
 
-                <div class="hero-showcase-card">
-                    <!-- Luxury Gold L-Brackets -->
-                    <span class="card-corner c-tl" aria-hidden="true"></span>
-                    <span class="card-corner c-tr" aria-hidden="true"></span>
-                    <span class="card-corner c-bl" aria-hidden="true"></span>
-                    <span class="card-corner c-br" aria-hidden="true"></span>
+                <!-- Framing Gold Brackets for Hero Section -->
+                <span class="hero-corner c-tl" aria-hidden="true"></span>
+                <span class="hero-corner c-tr" aria-hidden="true"></span>
+                <span class="hero-corner c-bl" aria-hidden="true"></span>
+                <span class="hero-corner c-br" aria-hidden="true"></span>
 
-                    <div class="hero-card-grid">
-                        <!-- Left Column: Identity, Narrative & Verification -->
-                        <div class="hero-card-left">
-                            <div class="hero-card-kicker-row">
-                                <span class="hero-card-kicker">PORTFOLIO &amp; EXECUTIVE PROFILE</span>
-                                <span class="hero-live-badge"><span class="pulse-dot"></span> Available for Impact</span>
-                            </div>
+                <!-- Left Column: Identity, Narrative & Verification -->
+                <div class="hero-left-content">
+                    <div class="hero-kicker-row">
+                        <span class="hero-kicker">PORTFOLIO &amp; EXECUTIVE PROFILE</span>
+                        <span class="hero-live-badge"><span class="pulse-dot"></span> Available for Impact</span>
+                    </div>
 
-                            <h1 class="hero-card-title">Mohit Raj</h1>
-                            <div class="hero-card-subtitle">Technical Team Lead @ Tech Tomorrow</div>
+                    <h1 class="hero-main-title">Mohit <span class="name-high">Raj</span></h1>
+                    <div class="hero-subtitle">Technical Team Lead @ Tech Tomorrow</div>
 
-                            <div class="hero-card-meta">
-                                <span>Jamshedpur, Jharkhand, India</span>
-                                <span class="meta-dot">•</span>
-                                <a href="https://mvp.microsoft.com/en-US/studentambassadors/profile/8d88ce7e-10b6-4c9c-9df7-bc11392431c9" target="_blank" rel="me noopener" class="hero-meta-link">
-                                    <span>Microsoft Ambassador</span>
-                                    <svg width="10" height="10" viewBox="0 0 12 12" fill="none" style="opacity:0.8;">
-                                        <path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </a>
-                                <span class="meta-dot">•</span>
-                                <a href="mohit-raj-yongmudo-brown-belt-certificate.jpg" target="_blank" rel="noopener"
-                                    class="hero-meta-link hero-meta-cert-link cert-lightbox-trigger"
-                                    data-cert-src="mohit-raj-yongmudo-brown-belt-certificate.jpg"
-                                    data-cert-title="Yongmudo Martial Arts &mdash; Brown Belt Certificate of Rank"
-                                    data-cert-meta="Indian Yongmudo Federation &bull; Affiliated to International Yongmudo Federation &amp; Yong In University, Korea"
-                                    title="View Official Yongmudo Certificate">
-                                    <span>Yongmudo Brown Belt</span>
-                                    <svg width="10" height="10" viewBox="0 0 12 12" fill="none" style="opacity:0.8;">
-                                        <path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </a>
-                            </div>
+                    <div class="hero-meta-strip">
+                        <span>Jamshedpur, Jharkhand, India</span>
+                        <span class="meta-dot">•</span>
+                        <a href="https://mvp.microsoft.com/en-US/studentambassadors/profile/8d88ce7e-10b6-4c9c-9df7-bc11392431c9" target="_blank" rel="me noopener" class="hero-meta-link">
+                            <span>Microsoft Ambassador</span>
+                            <svg width="11" height="11" viewBox="0 0 12 12" fill="none" style="opacity:0.85;">
+                                <path d="M1 11L11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                        <span class="meta-dot">•</span>
+                        <a href="mohit-raj-yongmudo-brown-belt-certificate.jpg" target="_blank" rel="noopener"
+                            class="hero-meta-link hero-meta-cert-link cert-lightbox-trigger"
+                            data-cert-src="mohit-raj-yongmudo-brown-belt-certificate.jpg"
+                            data-cert-title="Yongmudo Martial Arts &mdash; Brown Belt Certificate of Rank"
+                            data-cert-meta="Indian Yongmudo Federation &bull; Affiliated to International Yongmudo Federation &amp; Yong In University, Korea"
+                            title="View Official Yongmudo Certificate">
+                            <span>Yongmudo Brown Belt</span>
+                            <svg width="11" height="11" viewBox="0 0 12 12" fill="none" style="opacity:0.85;">
+                                <path d="M1 11L11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
 
-                            <div class="hero-card-divider" aria-hidden="true"></div>
+                    <div class="hero-rule" aria-hidden="true"></div>
 
-                            <p class="hero-card-narrative">
-                                Architecting resilient digital platforms where computational precision meets relentless athletic discipline. Directing system architecture, engineering operations, and platform scalability for nationwide tech ecosystems.
-                            </p>
+                    <p class="hero-narrative">
+                        Architecting resilient digital platforms where computational precision meets relentless athletic discipline. Directing system architecture, engineering operations, and platform scalability for nationwide tech ecosystems.
+                    </p>
 
-                            <!-- Entity Badges / Pills matching og_light_detailed -->
-                            <div class="hero-card-pills" aria-label="Entity Affiliations">
-                                <a href="https://techtomorrow.in" target="_blank" rel="noopener" class="hero-card-pill">
-                                    <span>Tech Tomorrow</span>
-                                </a>
-                                <a href="https://mvp.microsoft.com/en-US/studentambassadors/profile/8d88ce7e-10b6-4c9c-9df7-bc11392431c9" target="_blank" rel="me noopener" class="hero-card-pill">
-                                    <span>Microsoft Ambassador</span>
-                                </a>
-                                <button type="button" class="hero-card-pill cert-lightbox-trigger"
-                                    data-cert-src="mohit-raj-yongmudo-brown-belt-certificate.jpg"
-                                    data-cert-title="Yongmudo Martial Arts &mdash; Brown Belt Certificate of Rank"
-                                    data-cert-meta="Indian Yongmudo Federation &bull; Affiliated to International Yongmudo Federation &amp; Yong In University, Korea"
-                                    title="View Official Yongmudo Certificate">
-                                    <span>Yongmudo Brown Belt</span>
-                                </button>
-                                <a href="https://arkajainuniversity.ac.in" target="_blank" rel="noopener" class="hero-card-pill">
-                                    <span>Arka Jain Univ</span>
-                                </a>
-                            </div>
+                    <!-- Entity Badges / Pills matching og_light_detailed -->
+                    <div class="hero-pills" aria-label="Entity Affiliations">
+                        <a href="https://techtomorrow.in" target="_blank" rel="noopener" class="hero-pill-item">
+                            <span>Tech Tomorrow</span>
+                        </a>
+                        <a href="https://mvp.microsoft.com/en-US/studentambassadors/profile/8d88ce7e-10b6-4c9c-9df7-bc11392431c9" target="_blank" rel="me noopener" class="hero-pill-item">
+                            <span>Microsoft Ambassador</span>
+                        </a>
+                        <button type="button" class="hero-pill-item cert-lightbox-trigger"
+                            data-cert-src="mohit-raj-yongmudo-brown-belt-certificate.jpg"
+                            data-cert-title="Yongmudo Martial Arts &mdash; Brown Belt Certificate of Rank"
+                            data-cert-meta="Indian Yongmudo Federation &bull; Affiliated to International Yongmudo Federation &amp; Yong In University, Korea"
+                            title="View Official Yongmudo Certificate">
+                            <span>Yongmudo Brown Belt</span>
+                        </button>
+                        <a href="https://arkajainuniversity.ac.in" target="_blank" rel="noopener" class="hero-pill-item">
+                            <span>Arka Jain Univ</span>
+                        </a>
+                    </div>
 
-                            <div class="hero-card-actions">
-                                <a href="#contact" class="nav-btn">
-                                    <span>Inquire <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="margin-left:8px;">
-                                        <path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg></span>
-                                </a>
-                                <a href="#projects" class="nav-btn-ghost">
-                                    View Work <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="margin-left:8px;">
-                                        <path d="M1 6H11M11 6L6 1M11 6L6 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
-                                </a>
-                            </div>
+                    <div class="hero-action-group">
+                        <a href="#contact" class="nav-btn">
+                            <span>Inquire <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="margin-left:8px;">
+                                <path d="M1 11L11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg></span>
+                        </a>
+                        <a href="#projects" class="nav-btn-ghost">
+                            View Work <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="margin-left:8px;">
+                                <path d="M1 6H11M11 6L6 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
+                    </div>
 
-                            <div class="hero-card-footer">
-                                <span class="hero-card-url">https://mohitraj8503.github.io/mohitraj.me/</span>
-                            </div>
-                        </div>
+                    <div class="hero-footnote">
+                        <span class="hero-site-url">https://mohitraj8503.github.io/mohitraj.me/</span>
+                    </div>
+                </div>
 
-                        <!-- Right Column: Framed Portrait Showcase & Style Switcher -->
-                        <div class="hero-card-right">
-                            <div class="hero-portrait-frame">
-                                <img id="hero-img-executive" src="mohit-raj.jpg" width="1024" height="1024"
-                                    alt="Mohit Raj, Technical Team Lead at Tech Tomorrow"
-                                    class="hero-portrait-photo active" fetchpriority="high" decoding="async">
-                                <img id="hero-img-artistic" src="Colorised_Ghibli.png" width="1024" height="1536"
-                                    alt="Mohit Raj, Studio Artistic Portrait"
-                                    class="hero-portrait-photo" loading="lazy" decoding="async">
-                            </div>
+                <!-- Right Column: Framed Portrait Showcase & Style Switcher -->
+                <div class="hero-right-content">
+                    <div class="hero-portrait-frame">
+                        <img id="hero-img-executive" src="mohit-raj.jpg" width="1024" height="1024"
+                            alt="Mohit Raj, Technical Team Lead at Tech Tomorrow"
+                            class="hero-portrait-photo active" fetchpriority="high" decoding="async">
+                        <img id="hero-img-artistic" src="Colorised_Ghibli.png" width="1024" height="1536"
+                            alt="Mohit Raj, Studio Artistic Portrait"
+                            class="hero-portrait-photo" loading="lazy" decoding="async">
+                    </div>
 
-                            <div class="hero-portrait-switcher" role="tablist" aria-label="Portrait View Switcher">
-                                <button type="button" id="btn-portrait-executive" class="switcher-btn active" role="tab" aria-selected="true" title="Switch to Real Executive Portrait">
-                                    <span class="switcher-dot"></span> Executive
-                                </button>
-                                <button type="button" id="btn-portrait-artistic" class="switcher-btn" role="tab" aria-selected="false" title="Switch to Studio Artistic Portrait">
-                                    <span class="switcher-dot"></span> Artistic
-                                </button>
-                            </div>
-                        </div>
+                    <div class="hero-portrait-switcher" role="tablist" aria-label="Portrait View Switcher">
+                        <button type="button" id="btn-portrait-executive" class="switcher-btn active" role="tab" aria-selected="true" title="Switch to Real Executive Portrait">
+                            <span class="switcher-dot"></span> Executive
+                        </button>
+                        <button type="button" id="btn-portrait-artistic" class="switcher-btn" role="tab" aria-selected="false" title="Switch to Studio Artistic Portrait">
+                            <span class="switcher-dot"></span> Artistic
+                        </button>
                     </div>
                 </div>
             </section>
@@ -4073,19 +4028,18 @@
 
                 // Elegant Hero entrance timeline
                 const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
-                heroTl.from(".hero-showcase-card", { scale: 0.98, opacity: 0, duration: 1.0, delay: 0.1 })
-                      .from(".hero-card-title", { y: 35, opacity: 0, duration: 0.85 }, "-=0.7")
-                      .from(".hero-card-subtitle", { y: 20, opacity: 0, duration: 0.75 }, "-=0.65")
-                      .from(".hero-card-meta", { y: 15, opacity: 0, duration: 0.65 }, "-=0.55")
-                      .from(".hero-card-narrative", { y: 18, opacity: 0, duration: 0.7 }, "-=0.55")
-                      .from(".hero-card-pills > *", { y: 12, opacity: 0, stagger: 0.08, duration: 0.6 }, "-=0.5")
-                      .from(".hero-card-actions > *", { y: 15, opacity: 0, stagger: 0.1, duration: 0.6 }, "-=0.45")
-                      .from(".hero-portrait-frame", { scale: 0.95, opacity: 0, duration: 0.9, ease: "power2.out" }, "-=0.8");
+                heroTl.from(".hero-main-title", { y: 45, opacity: 0, duration: 1.0, delay: 0.1 })
+                      .from(".hero-subtitle", { y: 24, opacity: 0, duration: 0.8 }, "-=0.7")
+                      .from(".hero-meta-strip", { y: 18, opacity: 0, duration: 0.7 }, "-=0.65")
+                      .from(".hero-narrative", { y: 20, opacity: 0, duration: 0.75 }, "-=0.6")
+                      .from(".hero-pills > *", { y: 14, opacity: 0, stagger: 0.08, duration: 0.65 }, "-=0.55")
+                      .from(".hero-action-group > *", { y: 16, opacity: 0, stagger: 0.1, duration: 0.65 }, "-=0.5")
+                      .from(".hero-portrait-frame", { scale: 0.94, opacity: 0, duration: 1.0, ease: "power2.out" }, "-=0.85");
 
-                // Parallax depth on Hero showcase card as user scrolls
+                // Parallax depth on Hero showcase portrait as user scrolls
                 gsap.to(".hero-portrait-frame", {
-                    yPercent: 8,
-                    scale: 1.02,
+                    yPercent: 10,
+                    scale: 1.03,
                     ease: "none",
                     scrollTrigger: {
                         trigger: "#hero",
