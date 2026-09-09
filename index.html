@@ -1826,6 +1826,216 @@
             transform: translateY(0) scale(0.95);
         }
 
+        /* ===================================
+           LUXURY CERTIFICATE LIGHTBOX MODAL
+        =================================== */
+        .cert-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 100000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .cert-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .cert-modal-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(26, 24, 22, 0.76);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        .cert-modal-container {
+            position: relative;
+            z-index: 2;
+            background: var(--bg-ivory);
+            border: 1px solid rgba(201, 169, 110, 0.45);
+            border-radius: 18px;
+            max-width: 680px;
+            width: 100%;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+            transform: scale(0.94) translateY(16px);
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+            overflow: hidden;
+        }
+
+        .cert-modal.active .cert-modal-container {
+            transform: scale(1) translateY(0);
+        }
+
+        .cert-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px 24px 14px;
+            border-bottom: 1px solid rgba(42, 38, 34, 0.08);
+            background: #F4EFE6;
+        }
+
+        .cert-modal-kicker {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--accent-gold);
+            font-weight: 600;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .cert-modal-title {
+            font-family: 'Cormorant Garamond', Georgia, serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--ink);
+            line-height: 1.2;
+            margin: 0;
+        }
+
+        .cert-modal-meta {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            color: var(--ink-3);
+            margin: 3px 0 0;
+        }
+
+        .cert-modal-close {
+            background: rgba(26, 24, 22, 0.06);
+            border: 1px solid rgba(122, 96, 49, 0.25);
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--ink);
+            transition: background 0.2s, color 0.2s, transform 0.2s;
+            flex-shrink: 0;
+            margin-left: 16px;
+        }
+
+        .cert-modal-close:hover {
+            background: var(--ink);
+            color: var(--bg-ivory);
+            transform: rotate(90deg);
+        }
+
+        .cert-modal-body {
+            padding: 16px 24px;
+            overflow-y: auto;
+            display: flex;
+            justify-content: center;
+            background: #FAF8F3;
+        }
+
+        .cert-modal-img {
+            max-width: 100%;
+            max-height: 58vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 8px;
+            border: 1px solid rgba(201, 169, 110, 0.35);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .cert-modal-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 24px;
+            border-top: 1px solid rgba(42, 38, 34, 0.08);
+            background: #F4EFE6;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px;
+        }
+
+        .cert-modal-info {
+            color: var(--ink-3);
+        }
+
+        .cert-modal-action {
+            display: inline-flex;
+            align-items: center;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            color: var(--accent-gold);
+            text-decoration: none;
+            padding: 6px 14px;
+            border: 1px solid rgba(122, 96, 49, 0.35);
+            border-radius: 999px;
+            background: var(--bg-ivory);
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+
+        .cert-modal-action:hover {
+            background: var(--ink);
+            color: var(--bg-ivory);
+            border-color: var(--ink);
+        }
+
+        /* Interactive certificate triggers */
+        .hero-meta-cert-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
+            border-bottom: 1px dashed rgba(122, 96, 49, 0.5);
+            transition: color 0.2s, border-color 0.2s;
+        }
+
+        .hero-meta-cert-link:hover {
+            color: var(--accent-gold);
+            border-bottom-color: var(--accent-gold);
+        }
+
+        .about-stat-interactive {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            transition: transform 0.25s var(--transition-smooth);
+        }
+
+        .about-stat-interactive:hover {
+            transform: translateY(-2px);
+        }
+
+        .about-stat-interactive:hover .about-stat-num {
+            color: var(--ink) !important;
+        }
+
+        .cert-text-link {
+            color: var(--ink);
+            text-decoration: underline;
+            text-decoration-color: rgba(122, 96, 49, 0.5);
+            text-underline-offset: 3px;
+            cursor: pointer;
+            transition: color 0.2s, text-decoration-color 0.2s;
+        }
+
+        .cert-text-link:hover {
+            color: var(--accent-gold);
+            text-decoration-color: var(--accent-gold);
+        }
+
         .timeline-list::before {
             content: "";
             position: absolute;
@@ -2563,7 +2773,17 @@
                         <span class="dot">•</span>
                         <span>Microsoft Learn Student Ambassador</span>
                         <span class="dot">•</span>
-                        <span>Yongmudo Brown Belt</span>
+                        <a href="mohit-raj-yongmudo-brown-belt-certificate.jpg" target="_blank" rel="noopener"
+                            class="hero-meta-cert-link cert-lightbox-trigger"
+                            data-cert-src="mohit-raj-yongmudo-brown-belt-certificate.jpg"
+                            data-cert-title="Yongmudo Martial Arts &mdash; Brown Belt Certificate of Rank"
+                            data-cert-meta="Indian Yongmudo Federation &bull; Affiliated to International Yongmudo Federation &amp; Yong In University, Korea"
+                            title="View Official Yongmudo Certificate">
+                            <span>Yongmudo Brown Belt</span>
+                            <svg width="10" height="10" viewBox="0 0 12 12" fill="none" style="margin-left:3px; opacity:0.8;">
+                                <path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
                     </div>
                     <div class="hero-btn-group">
                         <a href="#contact" class="nav-btn">
@@ -2615,8 +2835,21 @@
                             <span class="about-stat-label">Students Impacted</span>
                         </div>
                         <div>
-                            <span class="about-stat-num" style="font-size: clamp(24px, 3.2vw, 36px); line-height: 1.2; color: var(--accent-gold); white-space: nowrap;">Brown Belt</span>
-                            <span class="about-stat-label">Yongmudo Martial Arts</span>
+                            <a href="mohit-raj-yongmudo-brown-belt-certificate.jpg" target="_blank" rel="noopener"
+                                class="about-stat-interactive cert-lightbox-trigger"
+                                data-cert-src="mohit-raj-yongmudo-brown-belt-certificate.jpg"
+                                data-cert-title="Yongmudo Martial Arts &mdash; Brown Belt Certificate of Rank"
+                                data-cert-meta="Indian Yongmudo Federation &bull; Affiliated to International Yongmudo Federation &amp; Yong In University, Korea"
+                                title="Click to view official certificate"
+                                aria-label="View official Yongmudo Brown Belt Certificate">
+                                <span class="about-stat-num" style="font-size: clamp(24px, 3.2vw, 36px); line-height: 1.2; color: var(--accent-gold); white-space: nowrap; display: inline-flex; align-items: center; gap: 6px;">
+                                    Brown Belt
+                                    <svg width="13" height="13" viewBox="0 0 12 12" fill="none" style="opacity:0.8; transform: translateY(-1px);">
+                                        <path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
+                                <span class="about-stat-label">Yongmudo Martial Arts <span style="font-size: 9px; color: var(--accent-gold); letter-spacing: 0.1em; text-transform: uppercase;">(View Cert)</span></span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -2624,7 +2857,7 @@
                 <div class="about-p-text">
                     <p>Mohit Raj is a Technical Team Lead at Tech Tomorrow and Microsoft Learn Student Ambassador pursuing a B.Tech in AI &amp; Data Science at Arka Jain University in Jamshedpur, Jharkhand, India. I architect scalable web infrastructure, enterprise LMS solutions, and AI-driven systems. From building MSME Government of India-recognized examination engines to conducting national developer masterclasses, my engineering is rooted in structural clarity and high-concurrency performance.</p>
                     <hr class="about-divider">
-                    <p>Reinforcing deep full-stack architecture with the rapid tactical focus, agility, and mental resilience of an advanced <strong>Yongmudo Martial Arts Brown Belt</strong>, I engineer platforms built to excel under national-scale demand.</p>
+                    <p>Reinforcing deep full-stack architecture with the rapid tactical focus, agility, and mental resilience of an advanced <a href="mohit-raj-yongmudo-brown-belt-certificate.jpg" target="_blank" rel="noopener" class="cert-text-link cert-lightbox-trigger" data-cert-src="mohit-raj-yongmudo-brown-belt-certificate.jpg" data-cert-title="Yongmudo Martial Arts &mdash; Brown Belt Certificate of Rank" data-cert-meta="Indian Yongmudo Federation &bull; Affiliated to International Yongmudo Federation &amp; Yong In University, Korea" title="Click to view official certificate"><strong>Yongmudo Martial Arts Brown Belt</strong></a>, I engineer platforms built to excel under national-scale demand.</p>
                 </div>
             </div>
         </section>
@@ -3131,9 +3364,17 @@
                         <span class="repo-stack">Korean Martial Arts • Advanced Rank • Tactical Discipline</span>
                         <h3>Yongmudo Martial Arts &mdash; Brown Belt</h3>
                         <p class="repo-desc">Earned advanced Brown Belt rank in Korean Yongmudo. Rigorous training in tactical physical defense, mental focus, rapid reaction cycles, and uncompromising composure under pressure &mdash; foundational attributes that fortify architectural resilience in engineering.</p>
-                        <div class="view-repo" style="color: var(--accent-gold); cursor: default;">
-                            Brown Belt Practitioner
-                        </div>
+                        <a href="mohit-raj-yongmudo-brown-belt-certificate.jpg" target="_blank" rel="noopener"
+                            class="view-repo cert-lightbox-trigger"
+                            data-cert-src="mohit-raj-yongmudo-brown-belt-certificate.jpg"
+                            data-cert-title="Yongmudo Martial Arts &mdash; Brown Belt Certificate of Rank"
+                            data-cert-meta="Indian Yongmudo Federation &bull; Affiliated to International Yongmudo Federation &amp; Yong In University, Korea"
+                            aria-label="View Official Yongmudo Brown Belt Certificate">
+                            View Official Certificate <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="margin-left:12px;">
+                                <path d="M2.5 7H11.5M11.5 7L7.5 3M11.5 7L7.5 11" stroke="currentColor"
+                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </a>
                     </div>
                     <div class="repo-side-col">
                         <span class="repo-stat">Brown Belt Rank</span>
@@ -3216,6 +3457,36 @@
             <path d="M7 12V2M7 2L2 7M7 2L12 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
     </button>
+
+    <!-- ========================================================
+         LUXURY CERTIFICATE LIGHTBOX MODAL
+    ======================================================== -->
+    <div class="cert-modal" id="cert-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="cert-modal-title">
+        <div class="cert-modal-overlay" id="cert-modal-overlay"></div>
+        <div class="cert-modal-container">
+            <div class="cert-modal-header">
+                <div>
+                    <span class="cert-modal-kicker">OFFICIAL VERIFIED CREDENTIAL</span>
+                    <h3 class="cert-modal-title" id="cert-modal-title">Yongmudo Martial Arts &mdash; Brown Belt Certificate</h3>
+                    <p class="cert-modal-meta" id="cert-modal-meta">Indian Yongmudo Federation &bull; Affiliated to International Yongmudo Federation &amp; Yong In University, Korea</p>
+                </div>
+                <button class="cert-modal-close" id="cert-modal-close" aria-label="Close certificate modal">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                        <path d="M1 1L13 13M1 13L13 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="cert-modal-body">
+                <img src="mohit-raj-yongmudo-brown-belt-certificate.jpg" alt="Mohit Raj Official Yongmudo Brown Belt Rank Certificate" id="cert-modal-img" class="cert-modal-img" loading="lazy">
+            </div>
+            <div class="cert-modal-footer">
+                <span class="cert-modal-info">Rank: Brown Belt &bull; Examination Date: 05/08/2018</span>
+                <a href="mohit-raj-yongmudo-brown-belt-certificate.jpg" target="_blank" rel="noopener" class="cert-modal-action" id="cert-modal-fullview">
+                    Open Full Image <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="margin-left:6px;"><path d="M1 11L11 1M11 1H4M11 1V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
 
 
     <script>
@@ -3854,6 +4125,57 @@
                 if (closeBtn) closeBtn.addEventListener('click', closeMenu);
                 mobileLinks.forEach(l => l.addEventListener('click', closeMenu));
             }
+
+            /* ========================================================
+               12. CERTIFICATE LIGHTBOX MODAL LOGIC
+            ======================================================== */
+            const certModal = document.getElementById('cert-modal');
+            const certModalOverlay = document.getElementById('cert-modal-overlay');
+            const certModalClose = document.getElementById('cert-modal-close');
+            const certModalImg = document.getElementById('cert-modal-img');
+            const certModalTitle = document.getElementById('cert-modal-title');
+            const certModalMeta = document.getElementById('cert-modal-meta');
+            const certModalFullview = document.getElementById('cert-modal-fullview');
+
+            const openCertModal = (src, title, meta) => {
+                if (!certModal) return;
+                if (src && certModalImg) certModalImg.src = src;
+                if (src && certModalFullview) certModalFullview.href = src;
+                if (title && certModalTitle) certModalTitle.innerHTML = title;
+                if (meta && certModalMeta) certModalMeta.innerHTML = meta;
+                certModal.classList.add('active');
+                certModal.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+                if (lenis) lenis.stop();
+            };
+
+            const closeCertModal = () => {
+                if (!certModal) return;
+                certModal.classList.remove('active');
+                certModal.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+                if (lenis) lenis.start();
+            };
+
+            document.querySelectorAll('.cert-lightbox-trigger').forEach(trigger => {
+                trigger.addEventListener('click', (e) => {
+                    // Allow normal opening in new tab if user ctrl/meta clicked
+                    if (e.ctrlKey || e.metaKey) return;
+                    e.preventDefault();
+                    const src = trigger.getAttribute('data-cert-src') || trigger.getAttribute('href');
+                    const title = trigger.getAttribute('data-cert-title') || 'Official Rank Certificate';
+                    const meta = trigger.getAttribute('data-cert-meta') || 'Verified Credential';
+                    openCertModal(src, title, meta);
+                });
+            });
+
+            if (certModalClose) certModalClose.addEventListener('click', closeCertModal);
+            if (certModalOverlay) certModalOverlay.addEventListener('click', closeCertModal);
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && certModal && certModal.classList.contains('active')) {
+                    closeCertModal();
+                }
+            });
         });
     </script>
 
