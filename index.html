@@ -1111,19 +1111,21 @@
 
         .hero-title {
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(4.5rem, 10vw, 8rem);
+            font-size: clamp(3.2rem, 5.8vw, 5.6rem);
             font-weight: 400;
-            line-height: 0.92;
+            line-height: 1.05;
             color: var(--ink);
-            letter-spacing: -0.04em;
+            letter-spacing: -0.03em;
             margin-bottom: 0;
+            white-space: nowrap;
         }
 
         .name-high {
             color: var(--accent-gold);
             font-style: italic;
             font-size: inherit;
-            display: block;
+            display: inline;
+            margin-left: 0.16em;
             text-shadow: 0 2px 40px rgba(201, 169, 110, 0.2);
         }
 
@@ -2559,17 +2561,17 @@
             }
 
             .hero-title {
-                font-size: clamp(52px, 16vw, 76px);
-                /* Slightly refined scale */
-                letter-spacing: -2px;
-                /* Tighter for mobile editorial look */
-                line-height: 0.85;
+                font-size: clamp(38px, 11vw, 64px);
+                letter-spacing: -1.5px;
+                line-height: 0.95;
+                white-space: nowrap;
             }
 
             .name-high {
                 font-size: inherit;
-                transform: translateY(-5px);
-                /* Tighter spacing */
+                display: inline;
+                margin-left: 0.15em;
+                transform: none;
             }
 
             .hero-label {
@@ -2898,10 +2900,7 @@
                 <canvas id="neural-canvas" class="neural-canvas" aria-hidden="true"></canvas>
                 <div class="hero-text">
 
-                    <h1 class="hero-title">
-                        Mohit
-                        <span class="name-high">Raj</span>
-                    </h1>
+                    <h1 class="hero-title">Mohit <span class="name-high">Raj</span></h1>
                     <p class="hero-intro">
                         Mohit Raj is a Technical Team Lead at <a href="https://techtomorrow.in" target="_blank" rel="noopener" class="hero-inline-link" title="Visit Tech Tomorrow official site">Tech Tomorrow</a>, <a href="https://mvp.microsoft.com/en-US/studentambassadors/profile/8d88ce7e-10b6-4c9c-9df7-bc11392431c9" target="_blank" rel="me noopener" class="hero-inline-link" title="Visit Microsoft Learn Student Ambassador Profile">Microsoft Learn Student Ambassador</a>, and <a href="assets/images/mohit-raj-yongmudo-brown-belt-certificate.jpg" target="_blank" rel="noopener" class="hero-inline-link cert-lightbox-trigger" data-cert-src="assets/images/mohit-raj-yongmudo-brown-belt-certificate.jpg" data-cert-title="Yongmudo Martial Arts &mdash; Brown Belt Certificate of Rank" data-cert-meta="Indian Yongmudo Federation &bull; Affiliated to International Yongmudo Federation &amp; Yong In University, Korea" title="View Official Yongmudo Certificate">Yongmudo Martial Arts Brown Belt</a> based in Jamshedpur, Jharkhand, India. Architecting resilient digital platforms where computational precision meets relentless athletic discipline.
                     </p>
