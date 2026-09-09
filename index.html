@@ -565,6 +565,95 @@
             margin-left: 2px;
         }
 
+        /* --- Navbar Org Badges --- */
+        .nav-brand-group {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            position: relative;
+            z-index: 1100;
+        }
+
+        .nav-badges-divider {
+            width: 1px;
+            height: 18px;
+            background: var(--divider);
+            opacity: 0.5;
+        }
+
+        .nav-badges {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .nav-badge-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(42, 38, 34, 0.12);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+            padding: 3px;
+            text-decoration: none;
+            overflow: hidden;
+            flex-shrink: 0;
+            transition: transform 0.25s var(--transition-material),
+                        border-color 0.25s var(--transition-material),
+                        box-shadow 0.25s var(--transition-material),
+                        background 0.25s var(--transition-material);
+        }
+
+        .nav-badge-item:hover {
+            transform: translateY(-1.5px) scale(1.06);
+            border-color: var(--accent-gold);
+            background: #ffffff;
+            box-shadow: 0 3px 8px rgba(122, 96, 49, 0.14);
+        }
+
+        .nav-badge-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        .nav-badge-github {
+            color: var(--ink);
+            padding: 1px;
+        }
+
+        /* Overlay mobile badges */
+        .overlay-badges {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .overlay-badges .nav-badge-item {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .overlay-badges .nav-badge-github {
+            color: #FAF8F3;
+        }
+
+        @media (max-width: 860px) {
+            .nav-badges-divider,
+            .nav-badges {
+                display: none !important;
+            }
+        }
+
         .nav-links {
             display: flex;
             gap: 40px;
@@ -2340,10 +2429,31 @@
     <!-- ========== HEADER & NAVIGATION ========== -->
     <header>
         <nav id="nav" aria-label="Main Navigation">
-            <a href="#" class="nav-logo">
-                <span class="nav-logo-my">my</span><span class="nav-logo-portfolio">portfolio</span><span
-                    class="nav-logo-dot">.</span>
-            </a>
+            <div class="nav-brand-group">
+                <a href="#" class="nav-logo">
+                    <span class="nav-logo-my">my</span><span class="nav-logo-portfolio">portfolio</span><span
+                        class="nav-logo-dot">.</span>
+                </a>
+                <div class="nav-badges-divider" aria-hidden="true"></div>
+                <div class="nav-badges" aria-label="Affiliations and Profiles">
+                    <a href="https://techtomorrow.in" target="_blank" rel="noopener" class="nav-badge-item"
+                        title="Tech Tomorrow" aria-label="Tech Tomorrow">
+                        <img src="assets/logos/techtomorrow_clean.png" width="26" height="26" alt="Tech Tomorrow" class="nav-badge-img">
+                    </a>
+                    <a href="https://studentambassadors.com" target="_blank" rel="noopener" class="nav-badge-item"
+                        title="Microsoft Learn Student Ambassador" aria-label="Microsoft Learn Student Ambassador">
+                        <img src="assets/logos/mlsa_clean.png" width="26" height="26" alt="Microsoft Learn Student Ambassador" class="nav-badge-img">
+                    </a>
+                    <a href="https://arkajainuniversity.ac.in/" target="_blank" rel="noopener" class="nav-badge-item"
+                        title="Arka Jain University" aria-label="Arka Jain University">
+                        <img src="assets/logos/arkajain_clean.png" width="26" height="26" alt="Arka Jain University" class="nav-badge-img">
+                    </a>
+                    <a href="https://github.com/mohitraj8503" target="_blank" rel="noopener" class="nav-badge-item"
+                        title="GitHub" aria-label="GitHub">
+                        <img src="assets/logos/github.svg" width="26" height="26" alt="GitHub" class="nav-badge-img nav-badge-github">
+                    </a>
+                </div>
+            </div>
             <div class="nav-links">
                 <a href="#about" class="nav-link">About</a>
                 <a href="#skills" class="nav-link">Skills</a>
@@ -2392,6 +2502,22 @@
                 <span class="link-idx">05</span>Contact<span class="link-arrow">&#x2192;</span>
             </a>
         </nav>
+
+        <!-- Mobile Organization Badges -->
+        <div class="overlay-badges" aria-label="Affiliations and Profiles">
+            <a href="https://techtomorrow.in" target="_blank" rel="noopener" class="nav-badge-item" aria-label="Tech Tomorrow">
+                <img src="assets/logos/techtomorrow_clean.png" width="26" height="26" alt="Tech Tomorrow" class="nav-badge-img">
+            </a>
+            <a href="https://studentambassadors.com" target="_blank" rel="noopener" class="nav-badge-item" aria-label="Microsoft Learn Student Ambassador">
+                <img src="assets/logos/mlsa_clean.png" width="26" height="26" alt="Microsoft Learn Student Ambassador" class="nav-badge-img">
+            </a>
+            <a href="https://arkajainuniversity.ac.in/" target="_blank" rel="noopener" class="nav-badge-item" aria-label="Arka Jain University">
+                <img src="assets/logos/arkajain_clean.png" width="26" height="26" alt="Arka Jain University" class="nav-badge-img">
+            </a>
+            <a href="https://github.com/mohitraj8503" target="_blank" rel="noopener" class="nav-badge-item" aria-label="GitHub">
+                <img src="assets/logos/github.svg" width="26" height="26" alt="GitHub" class="nav-badge-img nav-badge-github">
+            </a>
+        </div>
 
         <!-- Absolutely anchored footer -->
         <div class="overlay-footer">
