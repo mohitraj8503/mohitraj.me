@@ -106,3 +106,7 @@ Open [http://localhost:8000](http://localhost:8000) in your browser.
 ---
 
 &copy; 2026 Mohit Raj. All rights reserved.
+
+---
+
+Built by [Mohit Raj](https://github.com/mohitraj8503) — Technical Team Lead @ [Tech Tomorrow](https://techtomorrow.in)
