@@ -1,9 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
         <loc>https://mohitraj8503.github.io/mohitraj.me/</loc>
-        <lastmod>2026-09-09</lastmod>
-        <changefreq>monthly</changefreq>
+        <lastmod>2026-09-24</lastmod>
+        <changefreq>weekly</changefreq>
         <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://mohitraj8503.github.io/mohitraj.me/assets/images/mohit-raj-technical-team-lead-tech-tomorrow-primary-headshot.jpg</image:loc>
+            <image:title>Mohit Raj — Professional Headshot</image:title>
+            <image:caption>Mohit Raj, Technical Team Lead &amp; Full-Stack Developer at Tech Tomorrow — professional headshot</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://mohitraj8503.github.io/mohitraj.me/assets/images/mohit-raj-technical-team-lead-tech-tomorrow-outdoor-portrait.jpg</image:loc>
+            <image:title>Mohit Raj — Outdoor Portrait</image:title>
+            <image:caption>Mohit Raj, Technical Team Lead at Tech Tomorrow — outdoor portrait</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://mohitraj8503.github.io/mohitraj.me/assets/images/mohit-raj-technical-team-lead-tech-tomorrow-full-standing.jpg</image:loc>
+            <image:title>Mohit Raj — Full-Length Portrait</image:title>
+            <image:caption>Mohit Raj, Full-Stack Developer and Technical Team Lead at Tech Tomorrow — full-length portrait</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://mohitraj8503.github.io/mohitraj.me/assets/images/mohit-raj-technical-team-lead-tech-tomorrow-conference-keynote.jpg</image:loc>
+            <image:title>Mohit Raj — Conference Setting</image:title>
+            <image:caption>Mohit Raj, Technical Team Lead at Tech Tomorrow — conference setting</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://mohitraj8503.github.io/mohitraj.me/assets/images/mohit-raj-technical-team-lead-tech-tomorrow-og-preview.jpg</image:loc>
+            <image:title>Mohit Raj — Social Preview Banner</image:title>
+            <image:caption>Mohit Raj, Technical Team Lead at Tech Tomorrow official preview card</image:caption>
+        </image:image>
     </url>
 </urlset>
